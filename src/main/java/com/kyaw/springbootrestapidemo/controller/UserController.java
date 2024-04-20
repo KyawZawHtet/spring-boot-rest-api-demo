@@ -6,6 +6,7 @@
  */
 package com.kyaw.springbootrestapidemo.controller;
 
+import com.kyaw.springbootrestapidemo.dto.UserDto;
 import com.kyaw.springbootrestapidemo.entity.User;
 import com.kyaw.springbootrestapidemo.service.UserService;
 import lombok.AllArgsConstructor;
@@ -22,9 +23,16 @@ public class UserController {
     private UserService userService;
 
     // Build Create User REST API
+//    @PostMapping("/create-user")
+//    public ResponseEntity<User> createUser(@RequestBody User user) {
+//        User createUser = userService.createUser(user);
+//        return new ResponseEntity<>(createUser, HttpStatus.CREATED);
+//    }
+
+    // Use DTO
     @PostMapping("/create-user")
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        User createUser = userService.createUser(user);
+    public ResponseEntity<UserDto> createUser(@RequestBody UserDto user) {
+        UserDto createUser = userService.createUser(user);
         return new ResponseEntity<>(createUser, HttpStatus.CREATED);
     }
 

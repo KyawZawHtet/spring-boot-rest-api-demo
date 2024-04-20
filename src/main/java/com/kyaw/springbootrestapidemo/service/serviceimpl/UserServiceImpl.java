@@ -6,7 +6,9 @@
  */
 package com.kyaw.springbootrestapidemo.service.serviceimpl;
 
+import com.kyaw.springbootrestapidemo.dto.UserDto;
 import com.kyaw.springbootrestapidemo.entity.User;
+import com.kyaw.springbootrestapidemo.mappper.UserMapper;
 import com.kyaw.springbootrestapidemo.repository.UserRepository;
 import com.kyaw.springbootrestapidemo.service.UserService;
 import lombok.AllArgsConstructor;
@@ -18,11 +20,37 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
+
     private UserRepository userRepository;
 
+//    @Override
+//    public User createUser(User user) {
+//        return userRepository.save(user);
+//    }
+
+    // Use DTO
     @Override
-    public User createUser(User user) {
-        return userRepository.save(user);
+    public UserDto createUser(UserDto userDto) {
+
+        // Convert UserDto into Use JPA Entity
+//        User user = new User(
+//                userDto.getId(),
+//                userDto.getFirstName(),
+//                userDto.getLastName(),
+//                userDto.getEmail()
+//        );
+        User user = UserMapper.mapToUser(userDto);
+        User savedUser = userRepository.save(user);
+
+        // Convert User JPA Entity to UserDto
+//        UserDto savedUserDto = new UserDto(
+//                savedUser.getId(),
+//                savedUser.getFirstName(),
+//                savedUser.getLastName(),
+//                savedUser.getEmail()
+//        );
+        UserDto savedUserDto = UserMapper.mapToUserDto(savedUser);
+        return savedUserDto;
     }
 
     @Override

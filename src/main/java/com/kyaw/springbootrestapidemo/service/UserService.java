@@ -6,12 +6,16 @@
  */
 package com.kyaw.springbootrestapidemo.service;
 
+import com.kyaw.springbootrestapidemo.dto.UserDto;
 import com.kyaw.springbootrestapidemo.entity.User;
 
 import java.util.List;
 
 public interface UserService {
-    User createUser(User user);
+//    User createUser(User user);
+
+    // Use DTO
+    UserDto createUser(UserDto user);
 
     User getUserById(Long userId);
 
