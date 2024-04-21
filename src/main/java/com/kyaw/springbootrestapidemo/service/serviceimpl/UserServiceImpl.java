@@ -9,12 +9,10 @@ package com.kyaw.springbootrestapidemo.service.serviceimpl;
 import com.kyaw.springbootrestapidemo.dto.UserDto;
 import com.kyaw.springbootrestapidemo.entity.User;
 import com.kyaw.springbootrestapidemo.mappper.AutoUserMapper;
-import com.kyaw.springbootrestapidemo.mappper.UserMapper;
 import com.kyaw.springbootrestapidemo.repository.UserRepository;
 import com.kyaw.springbootrestapidemo.service.UserService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
