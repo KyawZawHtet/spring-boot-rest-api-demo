@@ -17,11 +17,18 @@ public interface UserService {
     // Use DTO
     UserDto createUser(UserDto user);
 
-    User getUserById(Long userId);
+//    User getUserById(Long userId);
 
-    List<User> getAllUsers();
+    // Use DTO
+    UserDto getUserById(Long userId);
 
-    User updateUser(User user);
+//    List<User> getAllUsers();
 
+    // Use DTO
+    List<UserDto> getAllUsers();
+//    User updateUser(User user);
+
+    // Use DTO
+    UserDto updateUser(UserDto user);
     void deleteUser(Long userId);
 }
