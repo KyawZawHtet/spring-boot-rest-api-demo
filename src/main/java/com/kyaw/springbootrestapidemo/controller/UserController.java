@@ -8,12 +8,16 @@ package com.kyaw.springbootrestapidemo.controller;
 
 import com.kyaw.springbootrestapidemo.dto.UserDto;
 import com.kyaw.springbootrestapidemo.entity.User;
+import com.kyaw.springbootrestapidemo.exception.ErrorDetails;
+import com.kyaw.springbootrestapidemo.exception.ResourceNotFoundException;
 import com.kyaw.springbootrestapidemo.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.WebRequest;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -89,4 +93,15 @@ public class UserController {
         userService.deleteUser(userId);
         return new ResponseEntity<>("User Successfully Deleted!!!", HttpStatus.OK);
     }
+
+//    @ExceptionHandler(ResourceNotFoundException.class)
+//    public ResponseEntity<ErrorDetails> resourceNotFoundException(ResourceNotFoundException exception, WebRequest webRequest){
+//        ErrorDetails errorDetails = new ErrorDetails(
+//               LocalDateTime.now(),
+//                exception.getMessage(),
+//                webRequest.getDescription(false),
+//                "USER NOT FOUND"
+//        );
+//        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+//    }
 }
