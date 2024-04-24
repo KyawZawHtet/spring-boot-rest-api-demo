@@ -1,6 +1,7 @@
 - [x] Spring Boot REST API CRUD
 - [x] DTO
 - [x] ModelMapper and MapStruct
+- [x] Exception Handling
 - [x] Validation
 - [x] Actuator
 - [x] OpenAPI 
